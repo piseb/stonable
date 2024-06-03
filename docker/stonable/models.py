@@ -1,8 +1,8 @@
 from django.db import models
 
 class Entite(models.Model):
-    nom = models.CharField(max_length=50, blank=True)
-    prenom = models.CharField(max_length=50)
+    nom = models.CharField(max_length=50)
+    prenom = models.CharField(max_length=50, blank=True)
     adresse = models.CharField(max_length=200, blank=True)
     code_postal = models.CharField(max_length=8, blank=True)
     ville = models.CharField(max_length=50, blank=True)
