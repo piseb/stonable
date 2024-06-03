@@ -1,0 +1,6 @@
+<form action="{% url 'entite_create' %}" method="post">
+    {% csrf_token %}
+    {{ form }}
+    {% comment %} <button type="submit">Envoyer</button> {% endcomment %}
+    <input type="submit" value="Enregistrer">
+</form>
