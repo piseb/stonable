@@ -1,6 +1,6 @@
 from django.db import models
 
-class Annuaire(models.Model):
+class Entite(models.Model):
     nom = models.CharField(max_length=50, blank=True)
     prenom = models.CharField(max_length=50)
     adresse = models.CharField(max_length=200, blank=True)
