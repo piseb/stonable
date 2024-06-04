@@ -16,7 +16,8 @@ def entites(request):
 
 def entite_read(request, entite_id):
     entite = get_object_or_404(Entite, pk=entite_id)
-    return render(request, "annuaire/entite.html", {"entite": entite})
+    form = EntiteForm(instance=entite)
+    return render(request, "annuaire/entite.html", {"form": form})
 
 
 def entite_create(request):
