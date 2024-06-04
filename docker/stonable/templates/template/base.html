@@ -27,6 +27,12 @@
                 {% endif %}
                 " aria-current="page" href="{% url "home" %}">Home</a>
                 </li>
+                <li>
+                    <a href="{% url "entites" %}">Annuaire</a>
+                </li>
+                <li>
+                    <a href="{% url "entite_create" %}">Créer entité</a>
+                </li>
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Chercher" aria-label="Search">
