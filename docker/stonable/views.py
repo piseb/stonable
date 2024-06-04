@@ -10,13 +10,13 @@ def index(request):
 
 def entites(request):
     entites = Entite.objects.all()
-    return render(request, "annuaire/index.html", {"entites": entites})
+    return render(request, "entites/index.html", {"entites": entites})
 
 
 def entite_read(request, entite_id):
     entite = get_object_or_404(Entite, pk=entite_id)
     form = EntiteForm(instance=entite)
-    return render(request, "annuaire/entite.html", {"form": form})
+    return render(request, "entites/entite.html", {"form": form})
 
 
 def entite_create(request):
@@ -26,7 +26,7 @@ def entite_create(request):
             details.save()
             return HttpResponse("data submitted successfully")
         else:
-            return render(request, "annuaire/entite.html", {"form": details})
+            return render(request, "entites/entite.html", {"form": details})
     else:
         form = EntiteForm()
-        return render(request, "annuaire/entite.html", {"form": form})
+        return render(request, "entites/entite.html", {"form": form})
