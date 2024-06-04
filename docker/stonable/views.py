@@ -9,7 +9,7 @@ def home(request):
     return render(request, "home.html")
 
 
-def annuaire(request):
+def entites(request):
     entites = Entite.objects.all()
     return render(request, "annuaire/index.html", {"entites": entites})
 
