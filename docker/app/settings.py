@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'stonable.apps.StonableConfig',
+    "django_bootstrap5",
 ]
 
 MIDDLEWARE = [
