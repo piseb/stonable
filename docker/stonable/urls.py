@@ -4,5 +4,5 @@ from . import views
 APP_NAME = "stonable"
 
 urlpatterns = [
-    path("", views.index, name="index"),
+    path("", views.home, name="home"),
 ]
