@@ -1,0 +1,31 @@
+{% extends "template/base.html" %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">mail</th>
+            <th scope="col">fixe</th>
+            <th scope="col">portable</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for entite in entites %}
+        <tr>
+            <td><a href="{% url 'entite_read_update' entite.id%}">{{ entite.nom }}</a></td>
+            <td>{{ entite.prenom }}</td>
+            <td>{{ entite.email }}</td>
+            <td>{{ entite.telephone_fixe }}</td>
+            <td>{{ entite.telephone_portable }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

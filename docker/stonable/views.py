@@ -11,10 +11,10 @@ def home(request):
 
 def entites(request):
     entites = Entite.objects.all()
-    return render(request, "entites/index.html", {"entites": entites})
+    return render(request, "entites/entites.html", {"entites": entites})
 
 
-def entite_read(request, entite_id):
+def entite_read_update(request, entite_id):
     entite = get_object_or_404(Entite, pk=entite_id)
     form = EntiteForm(instance=entite)
     return render(request, "entites/entite.html", {"form": form})

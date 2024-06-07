@@ -27,12 +27,22 @@
                 {% endif %}
                 " aria-current="page" href="{% url "home" %}">Home</a>
                 </li>
-                <li>
-                    <a href="{% url "entites" %}">Annuaire</a>
-                </li>
-                <li>
-                    <a href="{% url "entite_create" %}">Créer entité</a>
-                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Annuaire
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item
+                        {% if request.resolver_match.url_name == "entites" %}
+                            active
+                        {% endif %}
+                            " href="{% url "entites" %}">Consulter</a></li>
+                        <li><a class="dropdown-item
+                        {% if request.resolver_match.url_name == "entite_create" %}
+                            active
+                        {% endif %}
+                            " href="{% url "entite_create" %}">Créer</a></li>
+                    </ul>
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Chercher" aria-label="Search">

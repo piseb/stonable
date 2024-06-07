@@ -7,5 +7,5 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("entites", views.entites, name="entites"),
     path("entites/new", views.entite_create, name="entite_create"),
-    path("entites/<int:entite_id>", views.entite_read, name="entite_read"),
+    path("entites/<int:entite_id>", views.entite_read_update, name="entite_read_update"),
 ]
