@@ -1,11 +1,15 @@
 {% extends "template/base.html" %}
-
 {% load django_bootstrap5 %}
-{% bootstrap_css %}
-{% bootstrap_javascript %}
 
 {% block content %}
-<form action="{% url 'entite_create' %}" method="post" class="form-horizontal">
+<form action="
+{% if entite_id %}
+    {% url 'entite_read' entite_id %}
+{% else %}
+    {% url 'entite_create' %}
+{% endif %}
+"
+method="post" class="form-horizontal">
     {% csrf_token %}
     {% bootstrap_form form layout="horizontal" %}
     {% bootstrap_button button_type="submit" content="Enregistrer" %}

@@ -15,7 +15,7 @@
     <tbody>
         {% for entite in entites %}
         <tr>
-            <td><a href="{% url 'entite_read_update' entite.id%}">{{ entite.nom }}</a></td>
+            <td><a href="{% url 'entite_read' entite.id%}">{{ entite.nom }}</a></td>
             <td>{{ entite.prenom }}</td>
             <td>{{ entite.email }}</td>
             <td>{{ entite.telephone_fixe }}</td>

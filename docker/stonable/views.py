@@ -14,20 +14,25 @@ def entites(request):
     return render(request, "entites/entites.html", {"entites": entites})
 
 
-def entite_read_update(request, entite_id):
-    entite = get_object_or_404(Entite, pk=entite_id)
-    form = EntiteForm(instance=entite)
-    return render(request, "entites/entite.html", {"form": form})
+def entite_create_or_update(request, entite_id=None):
+    if entite_id:
+        entite = get_object_or_404(Entite, pk=entite_id)
+    else:
+        entite = None
 
-
-def entite_create(request):
     if request.method == "POST":
-        details = EntiteForm(request.POST)
+        details = EntiteForm(request.POST, instance=entite or None)
         if details.is_valid():
             details.save()
             return HttpResponse("data submitted successfully")
         else:
-            return render(request, "entites/entite.html", {"form": details})
+            return render(
+                request,
+                "entites/entite.html",
+                {"form": details, "entite_id": entite_id},
+            )
     else:
-        form = EntiteForm()
-        return render(request, "entites/entite.html", {"form": form})
+        form = EntiteForm(instance=entite or None)
+        return render(
+            request, "entites/entite.html", {"form": form, "entite_id": entite_id}
+        )

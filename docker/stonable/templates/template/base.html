@@ -32,16 +32,20 @@
                         Annuaire
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item
+                        <li>
+                            <a class="dropdown-item
                         {% if request.resolver_match.url_name == "entites" %}
                             active
                         {% endif %}
-                            " href="{% url "entites" %}">Consulter</a></li>
-                        <li><a class="dropdown-item
+                            " href="{% url "entites" %}">Consulter</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item
                         {% if request.resolver_match.url_name == "entite_create" %}
                             active
                         {% endif %}
-                            " href="{% url "entite_create" %}">Créer</a></li>
+                            " href="{% url "entite_create" %}">Créer</a>
+                        </li>
                     </ul>
             </ul>
             <form class="d-flex" role="search">
