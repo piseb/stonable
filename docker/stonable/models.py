@@ -8,7 +8,7 @@ class Entite(models.Model):
     ville = models.CharField(max_length=50, blank=True)
     telephone_fixe = models.CharField(max_length=20, blank=True)
     telephone_portable = models.CharField(max_length=20, blank=True)
-    email = models.CharField(max_length=200, blank=True)
+    email = models.EmailField(max_length=200, blank=True)
     date_naissance = models.DateField(null=True, blank=True)
     note = models.TextField(blank=True)
     date_creation = models.DateTimeField(auto_now_add=True)
