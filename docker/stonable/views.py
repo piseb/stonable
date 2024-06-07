@@ -16,12 +16,12 @@ def entites(request):
 
 def entite_create_or_update(request, entite_id=None):
     if entite_id:
-        entite = get_object_or_404(Entite, pk=entite_id)
+        instance = get_object_or_404(Entite, pk=entite_id)
     else:
-        entite = None
+        instance = None
 
     if request.method == "POST":
-        details = EntiteForm(request.POST, instance=entite or None)
+        details = EntiteForm(request.POST, instance=instance)
         if details.is_valid():
             details.save()
             return HttpResponse("data submitted successfully")
@@ -32,7 +32,7 @@ def entite_create_or_update(request, entite_id=None):
                 {"form": details, "entite_id": entite_id},
             )
     else:
-        form = EntiteForm(instance=entite or None)
+        form = EntiteForm(instance=instance)
         return render(
             request, "entites/entite.html", {"form": form, "entite_id": entite_id}
         )
