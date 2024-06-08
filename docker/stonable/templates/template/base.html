@@ -37,8 +37,15 @@
         </nav>
 
     <div class="container-xxl mt-3">
-            {% block content %}
-            {% endblock %}
+        {% if alertes is not None %}
+            {% for alerte in alertes %}
+                <div class="alert alert-{{ alerte.type }}" role="alert">
+                    {{ alerte.message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% block content %}
+        {% endblock %}
     </div>
 
 </body>
