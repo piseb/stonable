@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.contrib import messages
+from django.core.paginator import Paginator
 from .forms import EntiteForm
 from .models import Entite
 
@@ -10,8 +11,40 @@ def home(request):
 
 
 def entites(request):
+    # TODO optimiser le query
     entites = Entite.objects.all()
-    return render(request, "entites/entites.html", {"entites": entites})
+    paginator = Paginator(entites, 10)
+
+    page = request.GET.get("page")
+    if page:
+        page = int(page)
+    else:
+        page = 1
+
+    entites = paginator.get_page(page)
+    pages = paginator.page_range
+
+    if entites.has_next():
+        page_next = page + 1
+    else:
+        page_next = None
+
+    if entites.has_previous():
+        page_previous = page - 1
+    else:
+        page_previous = None
+
+    return render(
+        request,
+        "entites/entites.html",
+        {
+            "entites": entites,
+            "page_current": page,
+            "page_next": page_next,
+            "page_previous": page_previous,
+            "pages": pages,
+        },
+    )
 
 
 def entite_create_or_update(request, entite_id=None):
