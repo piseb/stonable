@@ -55,7 +55,11 @@ def entite_create_or_update(request, entite_id=None):
         context["form"] = details
         if details.is_valid():
             details.save()
-            messages.success(request, "Nouvelle entité Enregistrée." )
+            if entite_id:
+                message = "Entité modifiée."
+            else:
+                message = "Nouvelle entité Enregistrée."
+            messages.success(request, message)
             return redirect(entites)
         else:
             return render(request, context)
@@ -65,8 +69,8 @@ def entite_create_or_update(request, entite_id=None):
         return render(request, "entites/entite.html", context)
 
 
-
 def entite_delete(request, entite_id):
     entite = get_object_or_404(Entite, pk=entite_id)
     entite.delete()
+    messages.success(request, "Entité effacée.")
     return redirect(entites)
