@@ -26,11 +26,11 @@ method="post" class="form-horizontal">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                Confirmez-vous la suppression de {{ form.nom }} {{ entite.prenom }}?
+                Confirmez-vous la suppression ?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-                <button type="button" class="btn btn-danger">Confirmer</button>
+                <a class="btn btn-danger" href="{% url 'entite_delete' entite_id %}" role="button">Confirmer</a>
             </div>
             </div>
         </div>

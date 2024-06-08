@@ -1,6 +1,6 @@
 from django.http import HttpResponse
-from django.shortcuts import get_object_or_404, render
 from django.contrib import messages
+from django.shortcuts import get_object_or_404, redirect, render
 from django.core.paginator import Paginator
 from .forms import EntiteForm
 from .models import Entite
@@ -69,3 +69,9 @@ def entite_create_or_update(request, entite_id=None):
         return render(
             request, "entites/entite.html", {"form": form, "entite_id": entite_id}
         )
+
+
+def entite_delete(request, entite_id):
+    entite = get_object_or_404(Entite, pk=entite_id)
+    entite.delete()
+    return redirect(entites)
