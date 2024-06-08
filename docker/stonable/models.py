@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Entite(models.Model):
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50, blank=True)

@@ -27,6 +27,7 @@
                 {% endif %}
                 " aria-current="page" href="{% url "home" %}">Home</a>
                 </li>
+<<<<<<< HEAD
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Annuaire
@@ -47,6 +48,14 @@
                             " href="{% url "entite_create" %}">Créer</a>
                         </li>
                     </ul>
+=======
+                <li>
+                    <a href="{% url "entites" %}">Annuaire</a>
+                </li>
+                <li>
+                    <a href="{% url "entite_create" %}">Créer entité</a>
+                </li>
+>>>>>>> 24712ead272c1065d1e575848453213d8d766973
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Chercher" aria-label="Search">
