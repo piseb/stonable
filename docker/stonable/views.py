@@ -1,6 +1,7 @@
 from django.shortcuts import render
+from django.contrib import messages
 
 
-def home(request, alertes=None):
-    context = {"alertes": alertes}
-    return render(request, "home.html", context)
+def home(request):
+    messages.success(request, "Message sent.")
+    return render(request, "home.html")

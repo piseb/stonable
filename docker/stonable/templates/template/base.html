@@ -37,10 +37,10 @@
         </nav>
 
     <div class="container-xxl mt-3">
-        {% if alertes is not None %}
-            {% for alerte in alertes %}
-                <div class="alert alert-{{ alerte.type }}" role="alert">
-                    {{ alerte.message }}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {{ message.tags }}" role="alert">
+                    {{ message }}
                 </div>
             {% endfor %}
         {% endif %}
