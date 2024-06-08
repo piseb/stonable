@@ -55,7 +55,8 @@ def entite_create_or_update(request, entite_id=None):
         context["form"] = details
         if details.is_valid():
             details.save()
-            return HttpResponse("data submitted successfully")
+            messages.success(request, "Nouvelle entité Enregistrée." )
+            return redirect(entites)
         else:
             return render(request, context)
     else:
